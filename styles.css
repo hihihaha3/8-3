@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Khojki:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Indie+Flower&family=Meow+Script&family=Merienda:wght@300..900&display=swap');
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  touch-action: manipulation;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("https://img.freepik.com/free-vector/watercolour-floral-background_91008-105.jpg?t=st=1740659955~exp=1740663555~hmac=e6bf65c5473737a4e88d97f88186670589a969b1cb180ff431e42493029f3ee1&w=1060");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Message styling - consistent across devices */
+.message {
+  font-family: "Merienda", cursive;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 5vw, 3rem); /* Responsive font size */
+  color: #f851f0;
+  text-shadow: 2px 2px 4px rgb(248, 252, 2), 4px 4px 6px rgb(240, 4, 44);
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  animation: float 3s ease-in-out infinite;
+  z-index: 10;
+  padding: 0 10px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Tree container positioning fix */
+.tree-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-65%);
+  z-index: 2;
+}
+
+/* Fix the tree icon positioning */
+.tree-icon {
+  width: clamp(100px, 30vw, 200px); /* Responsive width with min/max */
+  height: auto;
+  object-fit: contain;
+}
+
+/* Animation fixed to work with new positioning */
+@keyframes scale-effect {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(1); }
+  75% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+.tree-icon.scale-animation {
+  animation: scale-effect 1s ease-in-out infinite;
+}
+
+/* Button container positioning fix */
+.container {
+  position: fixed;
+  bottom: 10%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 5;
+}
+
+#showButton {
+  background-color: #ee0404;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: clamp(14px, 3vw, 16px);
+  padding: 15px 32px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px #ffffff;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  animation: showButton 5s forwards;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@keyframes showButton {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+#showButton:hover {
+  background-color: #e2d847;
+}
+
+#showButton:active {
+  box-shadow: 0 2px #48eb5d;
+  transform: translateY(4px);
+}
+
+/* Card modal styling fixes */
+.hidden {
+  display: none !important;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#guideInfo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0s 0.5s;
+}
+
+#guideInfo.show {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0s 0s;
+}
+
+/* Close button positioning fix */
+.close-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  background-color: #ee0404;
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.close-btn:hover {
+  background-color: #ff5555;
+}
+
+/* Card styling adjustments for consistency */
+.card {
+  color: #013243;
+  position: relative;
+  font-family: 'Times New Roman', Times, serif;
+  letter-spacing: 1px;
+  width: clamp(260px, 80vw, 300px);
+  height: clamp(360px, 80vh, 400px);
+  background: #e0e1dc;
+  transform-style: preserve-3d;
+  transform: perspective(2000px);
+  box-shadow: inset 300px 0 50px rgba(0, 0, 0, 0.5),
+    20px 0 60px rgba(0, 0, 0, 0.5);
+  transition: 1s;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.card:hover {
+  transform: perspective(2000px) rotate(15deg) scale(1.1);
+  box-shadow: inset 20px 0 50px rgba(0, 0, 0, 0.5),
+    0 10px 100px rgba(0, 0, 0, 0.5);
+}
+
+/* Card content styling */
+.card .imgBox {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-origin: left;
+  transition: 0.7s;
+  overflow: hidden;
+}
+
+.card .bark {
+  position: absolute;
+  background: #e0e1dc;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 0.7s;
+}
+
+.card .imgBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card:hover .imgBox {
+  transform: rotateY(-135deg);
+}
+
+.card:hover .bark {
+  opacity: 1;
+  transition: 0.6s;
+  box-shadow: 300px 200px 100px rgba(0, 0, 0, 0.4) inset;
+}
+
+.card .details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 0 0 0 10px;
+  z-index: -1;
+  margin-top: 70px;
+  width: 100%;
+}
+
+.card .details p {
+  font-size: 15px;
+  line-height: 5px;
+  transform: rotate(-10deg);
+  padding: 0 0 0 20px;
+}
+
+.card .details h4 {
+  text-align: center;
+  font-size: 26px;
+  height: 5px;
+  line-height: 1px;
+  font-family: "Merienda", cursive;
+  margin-top: 15px;
+}
+
+.color {
+  color: #c0392b;
+}
+
+.margin {
+  margin-bottom: 30px;
+}
+
+.text-right {
+  text-align: right;
+  font-size: 7px !important;
+  color: #e7f70f !important;
+  margin-top: 20px !important;
+  line-height: normal !important;
+}
+
+p {
+  font-family: "Noto Serif Khojki", serif !important;
+  color: #080808;
+  text-shadow: 1px 1px 3px rgb(255, 104, 104);
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .close-btn {
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+  
+  .card .details p {
+    font-size: 14px;
+    line-height: 4px;
+  }
+  
+  #showButton {
+    padding: 12px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .message {
+    top: 10px;
+  }
+  
+  .tree-container {
+    transform: translateY(-60%);
+  }
+  
+  .close-btn {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+  
+  .card .details p {
+    font-size: 13px;
+    line-height: 4px;
+  }
+  
+  .card .details h4 {
+    font-size: 22px;
+  }
+  
+  #showButton {
+    padding: 10px 20px;
+  }
+  
+  .container {
+    bottom: 5%;
+  }
+}
+
+/* Fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  body {
+    height: -webkit-fill-available;
+  }
+  
+  html {
+    height: -webkit-fill-available;
+  }
+}

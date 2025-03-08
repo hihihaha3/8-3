@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Women’s Day!</title>
+    <link rel="icon" href="./noel.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <head>
+        <script src="snowEffect.js"></script>
+    </head>
+</head>
+
+<body >
+    <audio id="audio" src="./Hẹn Ước.mp3"></audio>
+
+    <div id="mainMessage" class="message">Happy Women’s Day!</div>
+    <div class="tree-container">
+        <img src="./cat-133_512.gif" alt="Cây thông" class="tree-icon scale-animation">
+    </div>
+    <div id="container" class="rose"></div>
+
+
+    <div class="container">
+        <button id="showButton">
+            MỞ THIỆP
+        </button>
+    </div>
+
+    <div id="guideInfo" class="hidden">
+        <button id="closeButton" class="close-btn">X</button>
+        <div id="ax" class="card">
+            <div class="imgBox">
+                <div class="bark"></div>
+                <img
+                    src="https://bloganchoi.com/wp-content/uploads/2021/02/mau-thiep-chuc-mung-8-3-61-700x1024.jpg">
+            </div>
+            <div class="details">
+                <h4 class="color margin">NGÀY 8/3</h4>
+                <p>Chúc các chị em</p>
+                <p>Mở điện thoại ra</p>
+                <p>Ngập lời tụng ca</p>
+                <p>Tay ôm nhiều hoa</p>
+                <p>Giỏ đựng đầy quà</p>
+                <p>Khỏi lo việc nhà</p>
+                <p>Ăn uống thả ga</p>
+                <p>Tiền không phải trả</p>
+                <p>Cười tươi như hoa</p>
+                <p class="text-right">♥Đinh Quang Trung kính chúc:))♥</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+       document.body.addEventListener("click", function() {
+            var audio = document.getElementById("audio");
+            audio.play();
+        }); 
+        </script>
+       
+
+<!-- <script type="text/javascript"
+    jQuery(document).ready(function ($) {
+        if (!$.fn.wpSuperSnow) {
+            console.error("Lỗi: Plugin wpSuperSnow không được tải!");
+            return;
+        }
+
+        $('body').wpSuperSnow({
+            flakes: [ './rose.png', './pngegg.png', './001.png'],
+            totalFlakes: 150,
+            zIndex: 999999,
+            maxSize: 40,
+            maxDuration: 30,
+            useFlakeTrans: false
+        });
+    });
+</script>> -->
+
+
+
+</body>
+
+</html>
