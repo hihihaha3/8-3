@@ -42,7 +42,7 @@ function createFlake(container, images) {
   flake.style.height = 'auto';
   flake.style.left = startLeft + '%';
   flake.style.top = '-50px';
-  flake.style.opacity = Math.random() * 0.5 + 0.5; // Between 0.5-1
+  flake.style.opacity = Math.random() * 0.3 + 0.2; // Between 0.5-1
   flake.style.zIndex = '999999';
   flake.style.pointerEvents = 'none';
   
