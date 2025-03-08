@@ -2,7 +2,7 @@
 
 // Create a new JavaScript file named "snowEffect.js" and add this code
 function createSnowflakes() {
-  const flakeImages = ['./rose.png', './01.png', './02.png','like.png']; // Your existing images
+  const flakeImages = ['./rose.png', './01.png', './02.png','./like.png']; // Your existing images
   const flakeCount = 30; // Number of flakes
   const body = document.querySelector('body');
   const container = document.createElement('div');
